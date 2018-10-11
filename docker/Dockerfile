@@ -1,10 +1,6 @@
 FROM anapsix/alpine-java:8
- 
-#  后期更改为日志目录,将日志挂载出来
+RUN mkdir /app && mkdir /log
 VOLUME /tmp
-# 默认工作目录/
-ADD @project.build.finalName@.@project.packaging@ /app
-
+ADD @project.build.finalName@.jar /app 
 EXPOSE 8761
-
-ENTRYPOINT ["java","-jar","/app/*.jar"]
+ENTRYPOINT java -Xmx1000M -Xms1000M -jar  -Duser.timezone=GMT+8 /app/*jar
