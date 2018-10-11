@@ -1,6 +1,6 @@
-FROM anapsix/alpine-java:8
+FROM openjdk:8-jre-alpine
 RUN mkdir /app && mkdir /log
 VOLUME /tmp
-ADD @project.build.finalName@.@project.packaging@ /app
+ADD target/* /app
 EXPOSE 8761
 ENTRYPOINT ["java","-jar","/app/*.jar"]
