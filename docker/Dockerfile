@@ -3,4 +3,4 @@ RUN mkdir /app && mkdir /log
 VOLUME /tmp
 ADD target/* /app
 EXPOSE 8761
-ENTRYPOINT ["java","-jar","/app/*.jar"]
+ENTRYPOINT ["java","-jar","/*.jar"]
